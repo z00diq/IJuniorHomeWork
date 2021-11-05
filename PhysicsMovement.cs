@@ -46,7 +46,7 @@ public class PhysicsMovement : MonoBehaviour
         
         if (_targetVelocity.x != 0 && _grounded)
         {
-            _animator.SetBool("Run", true);
+            _animator.SetBool(_isRuning, true);
 
             if (_targetVelocity.x > 0)
             {
@@ -87,7 +87,7 @@ public class PhysicsMovement : MonoBehaviour
 
         if (distance > _minMoveDistance)
         {
-            Casting(move, distance);
+            Cast(move, distance);
             distance = FindMovingDistance(yMovement, distance);
         }
         _rigidBody.position = _rigidBody.position + move.normalized * distance;
@@ -124,7 +124,7 @@ public class PhysicsMovement : MonoBehaviour
         return distance;
     }
 
-    private void Casting(Vector2 move, float distance)
+    private void Cast(Vector2 move, float distance)
     {
         int count = _rigidBody.Cast(move, _contactFilter, _hitBuffer, distance + _shellRadius);
 

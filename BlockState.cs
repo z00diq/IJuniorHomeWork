@@ -6,7 +6,9 @@ using UnityEngine;
 public class BlockState : State
 {
     [SerializeField] private Shield _shield;
+
     private Animator _animator;
+    private const string targetState = "Block";
 
     private void Awake()
     {
@@ -18,14 +20,13 @@ public class BlockState : State
         Block();
     }
 
-    private void Block()
-    {
-        _shield.gameObject.SetActive(true);
-        _animator.Play("Block");
-    }
-
     private void OnDisable()
     {
         _shield.gameObject.SetActive(false);
+    }
+    private void Block()
+    {
+        _shield.gameObject.SetActive(true);
+        _animator.Play(targetState);
     }
 }

@@ -6,23 +6,24 @@ using UnityEngine;
 public class DeathState : State
 {
     private Animator _animator;
+    private const string targetState = "Death";
 
-    private void Start()
+    private void Awake()
     {
         _animator = GetComponent<Animator>();
     }
 
-    private void Update()
+    private void OnEnable()
     {
-        Death();
+        Dying();
         Destroy(gameObject,1.5f);
     }
 
-    private void Death()
+    private void Dying()
     {
         if (TryGetComponent(out BoxCollider2D collider))
             collider.enabled = false;
 
-        _animator.Play("Death");
+        _animator.Play(targetState);
     }
 }

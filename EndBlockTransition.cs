@@ -7,9 +7,8 @@ public class EndBlockTransition : Transition
     [SerializeField] private float _blockDuration;
 
     private float _delay=0;
-    
-    
-    void Update()
+
+    private void Update()
     {
         if (_delay >= _blockDuration)
             NeedTransit = true;

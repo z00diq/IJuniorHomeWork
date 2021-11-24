@@ -6,7 +6,7 @@ using UnityEngine;
 public class DeathState : State
 {
     private Animator _animator;
-    private const string targetState = "Death";
+    private const string TargetState = "Death";
 
     private void Awake()
     {

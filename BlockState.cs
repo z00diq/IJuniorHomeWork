@@ -8,7 +8,7 @@ public class BlockState : State
     [SerializeField] private Shield _shield;
 
     private Animator _animator;
-    private const string targetState = "Block";
+    private const string TargetState = "Block";
 
     private void Awake()
     {
